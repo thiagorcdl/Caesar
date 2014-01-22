@@ -1,0 +1,45 @@
+Thiago R. C. de Lima
+GRR20105251
+
+Trabalho 1.1 - Cifra de César
+
+CIFRAGEM
+	 O programa "cript" gera uma chave aleatória entre 1 e 25 (inclusivo) e
+	faz um "shift" para cada letra do texto de entrada. O número de shifts é o número da chave gerada. O programa recebe o texto na entrada padrão e escreve na saída padrão. 
+
+DECIFRAGEM
+	 O programa "decript" recebe como entrada o arquivo de saída do "cript" e gera 25 chaves ({1..25}) e, para cada chave, faz o shift em todas as letras e escreve os resultados em arquivos no formato "<chave>.out".
+
+EXECUÇÃO
+	 Para compilar, basta digitar:
+		$ make
+	 Exemplo para cifragem:
+		$ ./cript < entrada.txt > cifrado.txt
+	 Exemplo para decifragem:
+		$ ./decript < cifrado.txt
+
+AUTOMATIZAÇÃO
+	 Alternativamente, pode-se executar:
+		$ ./simula.sh n
+	 Este script utiliza os arquivos "{1..n}.in" como entrada para o "cript" e gera como saída cifrada arquivos "{1..n}.cript", que são utilizados como entrada para o "decript". Depois, o script automaticamente percorre os 25 resultados de cada caso de teste e faz um "diff" com o texto original para encontrar a chave. Por fim, a chave é impressa na saída padrão.
+	 O argumento "n" é opcional. Caso seja omitido, o teste será feito apenas com "1.in".
+
+ARQUIVOS
+	./README
+		Este arquivo.
+	./Makefile
+		Arquivo para compilação.
+		Argumento opcional:
+			clean - apaga tudo o que foi posteriormente gerado	
+	./simula.sh
+		Script para automatização de execução.
+		Argumento opcional:
+			n - n é o número de casos de teste
+	./cript.c
+		Código para o programa de cifragem.
+	./decript.c
+		Código para o programa de decifragem.
+	./1.in
+	./2.in
+	./3.in
+		Arquivos de teste.
